@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>jVectorMap demo</title>
     <link
       rel="stylesheet"
       href="/jquery-jvectormap-2.0.5.css"
       type="text/css"
       media="screen"
     />
+
     <script src="/jquery-3.6.0.min.js"></script>
     <script src="/jquery-jvectormap-2.0.5.min.js"></script>
     <script src="/jquery-jvectormap-world-mill.js"></script>
-    <title>JVectorMap</title>
+    <title>Covid19WorldMap</title>
+    <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
+    
+    <!-- DATE PICKER -->
+    <div class="date-picker">
+      <div class="selected-date"></div>
+  
+      <div class="dates">
+        <div class="month">
+          <div class="arrows prev-mth">&lt;</div>
+          <div class="mth"></div>
+          <div class="arrows next-mth">&gt;</div>
+        </div>
+  
+        <div class="days"></div>
+      </div>
+    </div>
+  
+    <script src="main.js"></script>
+
+    <!-- MAP -->
     <div id="world-map" style="width: 100%; height: 800px"></div>
     <script>
       $(function () {
         $("#world-map").vectorMap({
           map: "world_mill",
+          backgroundColor: "",
         });
       });
     </script>
+        <script src="/main.js"></script>
   </body>
 </html>
