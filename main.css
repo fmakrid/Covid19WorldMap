@@ -17,6 +17,23 @@ h1 {
   text-align: center;
 }
 
+#div1{
+    height:300px;
+    width: 300px;
+    background-color: white;
+    border: 3px black solid;
+    border-radius: 25px;
+    position: relative;
+    margin: auto;
+}
+#div1 p{
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 150px;
+}
+
 h1 span {
   font-weight: 300;
 }
