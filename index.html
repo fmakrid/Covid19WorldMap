@@ -29,6 +29,7 @@
         <div class="days"></div>
       </div>
     </div>
+    <!-- DATEPICKER - END -->
 
     <script src="/main.js"></script>
     <script src="/gdp-data.js"></script>
@@ -49,11 +50,9 @@
         },
         backgroundColor: "",
         onRegionTipShow: function (e, el, code) {
-          el.html(el.html() + " (GDP - " + gdpData["/gdp-date.js"] + ")");
+          el.html(el.html() + " (GDP - " + gdpData[code] + ")");
         },
       });
     </script>
-
-    <script src="/main.js"></script>
   </body>
 </html>
