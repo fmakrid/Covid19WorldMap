@@ -10,3 +10,11 @@ $("document").ready(function () {
       maxDate: new Date(2020,10,21)
   });
 });
+
+//Prints date when a date is selected or changed
+$(function () {
+  $("#date").on("change", function (){
+    var selectedDate = $(this).val();
+    console.log(selectedDate);
+  });
+});
