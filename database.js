@@ -1,4 +1,6 @@
 var mysql = require('mysql');
+var datex = require("./workaround");
+
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -12,7 +14,7 @@ con.connect(function(err) {
       console.error("error connecting: " + err.stack);
       return;
   }
-  con.query("SELECT * FROM covid19 WHERE id < 5", function (err, result, fields) {
+  con.query("SELECT * FROM covid19 WHERE dates='" + datex.exportedVar + "'" , function (err, result) {
     if (err){
         console.error("error connecting: " + err.stack);  
     }
