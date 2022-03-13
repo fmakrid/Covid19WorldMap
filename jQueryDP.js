@@ -15,6 +15,7 @@ $("document").ready(function () {
 $(function () {
   $("#date").on("change", function (){
     var selectedDate = $(this).val();
-    console.log(selectedDate);
+    pickedDate = selectedDate;
+    console.log(pickedDate);
   });
 });
