@@ -1,2 +1,2 @@
 var pickedDate;
-module.exports.exportedVar = '2020-12-14';
+module.exports.exportedVar = pickedDate;
