@@ -1,20 +1,24 @@
 {
   "name": "Covid19Map",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A map containing information about Covid19 cases worldwide",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
 
-
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/npm/npm.git"
-  },
+  "keywords": [],
+  "author": "Filippos Makridis (BaCpE Thesis)",
 
 
   "dependencies": {
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+
+  
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
