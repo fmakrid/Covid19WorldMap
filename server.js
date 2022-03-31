@@ -5,12 +5,18 @@ const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer(function(req, res) {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+function handleRequest (request, response) {
+  response.statusCode = 200;
+  // response.setHeader('Content-Type', 'text/plain');
+  response.end('Hello World\n');
+}
 
-server.listen(port, hostname, function() {
+//This creates the server
+const server = http.createServer(handleRequest);
+
+function listenResponse (){
   console.log('Server running at http://'+ hostname + ':' + port + '/');
-});
+}
+
+//This listens to a specific port and runs a fuction
+server.listen(3000, hostname, listenResponse);
