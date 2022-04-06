@@ -18,8 +18,7 @@
     "util-deprecate": "^1.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/***REMOVED***/Covid19WorldMap/issues"
   },
-  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme"
+  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
