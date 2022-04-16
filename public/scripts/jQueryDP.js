@@ -1,3 +1,5 @@
+var $;
+
 $("document").ready(function () {
   $("#date").datepicker({
       showOtherMonths: true,
