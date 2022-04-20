@@ -1,4 +1,5 @@
 var $;
+var pickedDate;
 
 $("document").ready(function () {
   $("#date").datepicker({

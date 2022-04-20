@@ -1,3 +1,4 @@
+// const jQuery = require('jquery');
 jQuery(document).ready(function($){
     $("#world-map-gdp").vectorMap({
         map: "world_mill_en",
