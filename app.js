@@ -14,23 +14,26 @@ const connection = mysql.createConnection({
   host: "localhost",
   database: "covid19",
   user: "root",
-  password: "***REMOVED***",
+  password: "***REMOVED***"
 });
 
 var pickedDate = "2020-12-14";
 var cases;
 
 connection.query(
-  "SELECT cases FROM covid19 WHERE dates='" + pickedDate + "';",
+  "SELECT iso2, cases FROM covid19 WHERE dates='" + pickedDate + "';",
   function (err, results, fields) {
-    console.log(results);
-    cases = results;
     const filePath = path.join(__dirname, "data", "pickedDate.json");
+    var gdpData = {};
     const fileData = fs.readFileSync(filePath);
     const storedDates = JSON.parse(fileData);
-    storedDates.push(cases);
-    fs.writeFileSync(filePath, JSON.stringify());
-    delete storedDates[cases];
+    for(var i of results){      
+      var test = i.iso2;
+      var test2 = i.cases;
+      gdpData[test] = test2;
+    }
+    storedDates.push(gdpData);
+    fs.writeFileSync(filePath, JSON.stringify(storedDates));
   }
 );
 
@@ -46,6 +49,7 @@ function listenResponse() {
 }
 
 app.get("/", function (req, res) {
+
   res.send;
 });
 
