@@ -1,45 +1,41 @@
-var pickedDate;
-
 const fs = require("fs");
 const path = require("path");
 const mysql = require("mysql2");
 const express = require("express");
-// const $ = require("jQuery");
-
 
 const db = require("./data/database.js");
-// require("./public/scripts/map.js");
-// const dp = require("./public/scripts/jQueryDP.js");
-
 
 const app = express();
 
 const hostname = "127.0.0.1";
 const port = 3000;
 
-
-
-var con = mysql.createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  password: "noobaki32",
   database: "covid19",
-  dateStrings: true
+  user: "root",
+  password: "noobaki32"
 });
 
-var dates = "2020-12-14";
+var pickedDate = "2020-12-14";
+var cases;
 
-con.connect(function(err) {
-  if (err) throw err;
-  if(pickedDate != null){
-    con.query("SELECT iso2 FROM covid19 WHERE dates = '" + pickedDate + "';" , function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-    });
+connection.query(
+  "SELECT iso2, cases FROM covid19 WHERE dates='" + pickedDate + "';",
+  function (err, results, fields) {
+    const filePath = path.join(__dirname, "data", "pickedDate.json");
+    var gdpData = {};
+    const fileData = fs.readFileSync(filePath);
+    const storedDates = JSON.parse(fileData);
+    for(var i of results){      
+      var test = i.iso2;
+      var test2 = i.cases;
+      gdpData[test] = test2;
+    }
+    storedDates.push(gdpData);
+    fs.writeFileSync(filePath, JSON.stringify(storedDates));
   }
-  else{console.log("NULL")}
-
-});
+);
 
 app.use(express.static("public"));
 
@@ -51,6 +47,23 @@ app.get("/", function (req, res) {
 function listenResponse() {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 }
+
+app.get("/", function (req, res) {
+
+  res.send;
+});
+
+app.post("/", function (req, res) {
+  const pickedDate = req.body;
+  const filePath = path.join(__dirname, "data", "pickedDate.json");
+
+  const fileData = fs.readFileSync(filePath);
+  const storedDates = JSON.parse(fileData);
+
+  storedDates.push(pickedDate);
+
+  fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+});
 
 app.use(function (error, req, res, next) {
   // Default error handling function
