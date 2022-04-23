@@ -1,5 +1,4 @@
-// const jQuery = require('jquery');
-jQuery(document).ready(function($){
+$(document).ready(function($){
     $("#world-map-gdp").vectorMap({
         map: "world_mill_en",
         series: {
@@ -17,3 +16,4 @@ jQuery(document).ready(function($){
         },
       });
 });
+
