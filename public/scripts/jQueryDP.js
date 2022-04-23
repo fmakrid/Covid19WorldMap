@@ -1,25 +1,25 @@
-var $;
-var pickedDate;
-
-$("document").ready(function () {
+$("document").ready(function ($) {
   $("#date").datepicker({
-      showOtherMonths: true,
-      selectOtherMonths: true,
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: "yy-mm-dd",
-      //Minimum date based on first Covid-19 case in database, starts from 0, month 1 is February
-      minDate: new Date(2020,1,25),
-      //Maximum date based on first Covid-19 case in database, start from 0, month 10 is November
-      maxDate: new Date(2020,10,21)
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "yy-mm-dd",
+    //Minimum date based on first Covid-19 case in database, starts from 0, month 1 is February
+    minDate: new Date(2020, 1, 25),
+    //Maximum date based on first Covid-19 case in database, start from 0, month 10 is November
+    maxDate: new Date(2020, 10, 21),
   });
 });
 
 //Prints date when a date is selected or changed
 $(function () {
-  $("#date").on("change", function (){
+  $("#date").on("change", function () {
     var selectedDate = $(this).val();
-    pickedDate = selectedDate;
+    var pickedDate = selectedDate;
     console.log(pickedDate);
+    $.post("/",pickedDate,callback);
   });
 });
+
+
