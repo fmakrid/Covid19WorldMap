@@ -1,15 +1,11 @@
-var pickedDate;
-
 const fs = require("fs");
 const path = require("path");
 const mysql = require("mysql2");
 const express = require("express");
-// const $ = require("jQuery");
 
 
 const db = require("./data/database.js");
 // require("./public/scripts/map.js");
-// const dp = require("./public/scripts/jQueryDP.js");
 
 
 const app = express();
@@ -31,14 +27,10 @@ var dates = "2020-12-14";
 
 con.connect(function(err) {
   if (err) throw err;
-  if(pickedDate != null){
-    con.query("SELECT iso2 FROM covid19 WHERE dates = '" + pickedDate + "';" , function (err, result, fields) {
+    con.query("SELECT iso2 FROM covid19 WHERE dates ='" + dates + "';" , function (err, result, fields) {
       if (err) throw err;
       console.log(result);
     });
-  }
-  else{console.log("NULL")}
-
 });
 
 app.use(express.static("public"));
@@ -51,6 +43,18 @@ app.get("/", function (req, res) {
 function listenResponse() {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 }
+
+app.post("/", function (req, res) {
+  const pickedDate = req.body;
+  const filePath = path.join(__dirname, "data", "pickedDate.json");
+
+  const fileData = fs.readFileSync(filePath);
+  const storedDates = JSON.parse(fileData);
+
+  storedDates.push(pickedDate);
+
+  fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+});
 
 app.use(function (error, req, res, next) {
   // Default error handling function
