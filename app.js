@@ -3,35 +3,36 @@ const path = require("path");
 const mysql = require("mysql2");
 const express = require("express");
 
-
 const db = require("./data/database.js");
-// require("./public/scripts/map.js");
-
 
 const app = express();
 
 const hostname = "127.0.0.1";
 const port = 3000;
 
-
-
-var con = mysql.createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
+  database: "covid19",
   user: "root",
   password: "noobaki32",
-  database: "covid19",
-  dateStrings: true
 });
 
-var dates = "2020-12-14";
+var pickedDate = "2020-12-14";
+var cases;
 
-con.connect(function(err) {
-  if (err) throw err;
-    con.query("SELECT iso2 FROM covid19 WHERE dates ='" + dates + "';" , function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-    });
-});
+connection.query(
+  "SELECT cases FROM covid19 WHERE dates='" + pickedDate + "';",
+  function (err, results, fields) {
+    console.log(results);
+    cases = results;
+    const filePath = path.join(__dirname, "data", "pickedDate.json");
+    const fileData = fs.readFileSync(filePath);
+    const storedDates = JSON.parse(fileData);
+    storedDates.push(cases);
+    fs.writeFileSync(filePath, JSON.stringify());
+    delete storedDates[cases];
+  }
+);
 
 app.use(express.static("public"));
 
@@ -43,6 +44,10 @@ app.get("/", function (req, res) {
 function listenResponse() {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 }
+
+app.get("/", function (req, res) {
+  res.send;
+});
 
 app.post("/", function (req, res) {
   const pickedDate = req.body;

@@ -18,7 +18,7 @@ $(function () {
     var selectedDate = $(this).val();
     var pickedDate = selectedDate;
     console.log(pickedDate);
-    $.post("/",pickedDate,callback);
+    $.post("app.js",pickedDate);
   });
 });
 
