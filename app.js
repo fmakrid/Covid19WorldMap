@@ -20,6 +20,7 @@ const connection = mysql.createConnection({
 var pickedDate = "2020-12-14";
 var cases;
 
+//This runs an sql query, cleans the results and outputs them in the specified file as needed
 connection.query(
   "SELECT iso2, cases FROM covid19 WHERE dates='" + pickedDate + "';",
   function (err, results, fields) {
