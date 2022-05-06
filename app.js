@@ -21,22 +21,27 @@ var pickedDate = "2020-12-14";
 var cases;
 
 //This runs an sql query, cleans the results and outputs them in the specified file as needed
-connection.query(
+function sqlQuery() {
+  var gdpData = {};
+
+  connection.query(
   "SELECT iso2, cases FROM covid19 WHERE dates='" + pickedDate + "';",
   function (err, results, fields) {
-    const filePath = path.join(__dirname, "data", "pickedDate.json");
-    var gdpData = {};
+    const filePath = path.join(__dirname, "public","scripts", "pickedDate.json");
     const fileData = fs.readFileSync(filePath);
     const storedDates = JSON.parse(fileData);
+
     for(var i of results){      
       var test = i.iso2;
       var test2 = i.cases;
       gdpData[test] = test2;
     }
-    storedDates.push(gdpData);
-    fs.writeFileSync(filePath, JSON.stringify(storedDates));
+    // storedDates.push(gdpData);
+    // fs.writeFileSync(filePath, JSON.stringify(storedDates));
   }
-);
+  );  
+  return gdpData;
+}
 
 app.use(express.static("public"));
 
@@ -49,21 +54,8 @@ function listenResponse() {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 }
 
-app.get("/", function (req, res) {
-
-  res.send;
-});
-
-app.post("/", function (req, res) {
-  const pickedDate = req.body;
-  const filePath = path.join(__dirname, "data", "pickedDate.json");
-
-  const fileData = fs.readFileSync(filePath);
-  const storedDates = JSON.parse(fileData);
-
-  storedDates.push(pickedDate);
-
-  fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+app.get("/ajaxcall", function (req, res) {
+  // res.send(sqlQuery());
 });
 
 app.use(function (error, req, res, next) {

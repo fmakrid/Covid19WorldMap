@@ -19,6 +19,16 @@ $(function () {
     var pickedDate = selectedDate;
     console.log(pickedDate);
     $.post("app.js",pickedDate);
+    function get(){
+      $.ajax({
+        type: "GET",
+        url: "https://localhost:8000/ajaxcall"
+      })
+      .done(function (data) {
+        console.log("GET RESPONSE:", JSON.stringify(data));
+        $("#getResponse").html(JSON.stringify(data));
+      })
+    }
   });
 });
 
