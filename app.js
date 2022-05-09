@@ -22,8 +22,8 @@ var cases;
 
 //This runs an sql query, cleans the results and outputs them in the specified file as needed
 function sqlQuery() {
-  var gdpData = {};
 
+  var gdpData = {};
   connection.query(
   "SELECT iso2, cases FROM covid19 WHERE dates='" + pickedDate + "';",
   function (err, results, fields) {
@@ -40,7 +40,8 @@ function sqlQuery() {
     // fs.writeFileSync(filePath, JSON.stringify(storedDates));
   }
   );  
-  return gdpData;
+  console.log(gdpData);
+  return (gdpData);
 }
 
 app.use(express.static("public"));
@@ -55,8 +56,13 @@ function listenResponse() {
 }
 
 app.get("/ajaxcall", function (req, res) {
-  // res.send(sqlQuery());
+  // var response = sqlQuery();
+  var response = 5;
+  res.send(response);
+  // res.send("HELLO WORLD");
+  console.log(response);
 });
+
 
 app.use(function (error, req, res, next) {
   // Default error handling function
