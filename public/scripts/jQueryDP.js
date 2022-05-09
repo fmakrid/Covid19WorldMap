@@ -12,24 +12,24 @@ $("document").ready(function ($) {
   });
 });
 
+
+
 //Prints date when a date is selected or changed
 $(function () {
-  $("#date").on("change", function () {
+  $("#date").on("change", function(){
     var selectedDate = $(this).val();
     var pickedDate = selectedDate;
     console.log(pickedDate);
-    $.post("app.js",pickedDate);
-    function get(){
-      $.ajax({
-        type: "GET",
-        url: "https://localhost:8000/ajaxcall"
-      })
-      .done(function (data) {
-        console.log("GET RESPONSE:", JSON.stringify(data));
-        $("#getResponse").html(JSON.stringify(data));
-      })
-    }
-  });
+    $.ajax({
+      type: "GET",
+      url: "https://localhost:3000/ajaxcall",
+      // data: pickedDate,      
+    })
+    .done(function(){
+      console.log(data);
+    })
+    .fail( function(xhr, textStatus, errorThrown) {
+      alert(xhr.responseText);
+    }); 
+})
 });
-
-
