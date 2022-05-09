@@ -12,14 +12,24 @@ $("document").ready(function ($) {
   });
 });
 
+
+
 //Prints date when a date is selected or changed
 $(function () {
-  $("#date").on("change", function () {
+  $("#date").on("change", function(){
     var selectedDate = $(this).val();
     var pickedDate = selectedDate;
     console.log(pickedDate);
-    $.post("app.js",pickedDate);
-  });
+    $.ajax({
+      type: "GET",
+      url: "https://localhost:3000/ajaxcall",
+      // data: pickedDate,      
+    })
+    .done(function(){
+      console.log(data);
+    })
+    .fail( function(xhr, textStatus, errorThrown) {
+      alert(xhr.responseText);
+    }); 
+})
 });
-
-
