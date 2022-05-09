@@ -6,10 +6,3 @@
 //   user: "root",
 //   password: "***REMOVED***",
 // });
-
-// connection.query("SELECT iso2 FROM covid19 WHERE dates='" + pickedDate + "';");
-
-// const filePath = path.join(__dirname, "data", "restaurants.json");
-
-// const fileData = fs.readFileSync(filePath);
-// const storedRestaurants = JSON.parse(fileData);
