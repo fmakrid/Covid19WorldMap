@@ -19,14 +19,14 @@ $(function () {
   $("#date").on("change", function(){
     var selectedDate = $(this).val();
     var pickedDate = selectedDate;
-    console.log(pickedDate);
+    // console.log(pickedDate);
     $.ajax({
       type: "POST",
       url: "/ajaxcall",
       data: {Date: pickedDate},      
     })
     .done(function(data){
-      console.log(data);
+      console.log(data);      
     })
     .fail( function(xhr, textStatus, errorThrown) {
       alert(xhr.responseText);
