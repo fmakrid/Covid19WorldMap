@@ -6,14 +6,15 @@ $(document).ready(function($){
           regions: [
             {
               values: gdpData,
-              scale: ["#C8EEFF", "#0071A4"],
-              normalizeFunction: "polynomial",
+              scale: ["#FFFFFF","#C23030", "#3D0000","#000000"],
+              normalizeFunction: "linear",
+              attribute: 'fill',
             },
           ],
         },
         backgroundColor: "",
         onRegionTipShow: function (e, el, code) {
-          el.html(el.html() + " (GDP - " + gdpData[code] + ")");
+          el.html(el.html() + " (Cases per day - " + gdpData[code] + ")");
         },
       });
 });
