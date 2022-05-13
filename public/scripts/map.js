@@ -1,6 +1,7 @@
 $(document).ready(function($){
     $("#world-map-gdp").vectorMap({
         map: "world_mill_en",
+        zoomButtons : false,
         series: {
           regions: [
             {
