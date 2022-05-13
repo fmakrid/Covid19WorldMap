@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
 });
 
 var pickedDate = "2020-12-14";
-var cases;
+
 
 //This runs an sql query, cleans the results and outputs them in the specified file as needed
 function sqlQuery(data, callback) {
@@ -54,7 +54,8 @@ function listenResponse() {
 
 app.post("/ajaxcall", function (req, res) {
   var stuffIWant = {Test:"Not working"}
-  sqlQuery("2020-12-14", function(result){
+  var date = req.body.Date;
+  sqlQuery(date, function(result){
     stuffIWant = result;
     console.log(stuffIWant);
     res.send(stuffIWant);
