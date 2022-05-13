@@ -6,6 +6,7 @@ const express = require("express");
 const db = require("./data/database.js");
 
 const app = express();
+app.use(express.urlencoded({ extended: false}));
 
 const hostname = "127.0.0.1";
 const port = 3000;
@@ -55,12 +56,11 @@ function listenResponse() {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 }
 
-app.get("/ajaxcall", function (req, res) {
-  // var response = sqlQuery();
-  var response = 5;
-  res.send(response);
-  // res.send("HELLO WORLD");
-  console.log(response);
+app.post("/ajaxcall", function (req, res) {
+  var response = sqlQuery();
+  console.log(req.body.Date);
+  res.send(req.body.Date);
+  console.log(req.body);
 });
 
 

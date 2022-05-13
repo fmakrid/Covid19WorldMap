@@ -21,11 +21,11 @@ $(function () {
     var pickedDate = selectedDate;
     console.log(pickedDate);
     $.ajax({
-      type: "GET",
-      url: "https://localhost:3000/ajaxcall",
-      // data: pickedDate,      
+      type: "POST",
+      url: "/ajaxcall",
+      data: {Date: pickedDate},      
     })
-    .done(function(){
+    .done(function(data){
       console.log(data);
     })
     .fail( function(xhr, textStatus, errorThrown) {
