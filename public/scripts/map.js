@@ -7,7 +7,7 @@ $(document).ready(function($){
             {
               values: {},
               scale: ["#FFFFFF","#C23030", "#3D0000","#000000"],
-              normalizeFunction: "polynomial",
+              normalizeFunction: "lineal",
               attribute: 'fill',
             },
           ],
