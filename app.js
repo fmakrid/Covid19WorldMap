@@ -10,14 +10,13 @@ app.use(express.urlencoded({ extended: false }));
 const hostname = "127.0.0.1";
 const port = 3000;
 
+//Database connection
 const connection = mysql.createConnection({
   host: "localhost",
   database: "covid19",
   user: "root",
   password: "noobaki32",
 });
-
-var pickedDate = "2020-12-14";
 
 
 //This runs an sql query, cleans the results and outputs them in the specified file as needed
