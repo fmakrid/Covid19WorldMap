@@ -28,7 +28,8 @@ $(function () {
     .done(function(data){
       console.log(data);
       var mapObj = $("#world-map-gdp").vectorMap("get", "mapObject");
-      mapObj.series.regions[0].setValues(data);      
+      mapObj.series.regions[0].setValues(data);
+            
     })
     .fail( function(xhr, textStatus, errorThrown) {
       alert(xhr.responseText);

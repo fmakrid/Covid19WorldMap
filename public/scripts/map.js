@@ -5,16 +5,16 @@ $(document).ready(function($){
         series: {
           regions: [
             {
-              values: gdpData,
+              values: {},
               scale: ["#FFFFFF","#C23030", "#3D0000","#000000"],
-              normalizeFunction: "linear",
+              normalizeFunction: "polynomial",
               attribute: 'fill',
             },
           ],
         },
         backgroundColor: "",
-        onRegionTipShow: function (e, el, code) {
-          el.html(el.html() + " (Cases per day - " + gdpData[code] + ")");
+        onRegionTipShow: function(e, el, code){
+          el.html(el.html()+' Cases '+ $("#world-map-gdp").vectorMap("get", "mapObject").series.regions[0].values[code]);
         },
       });
 });
