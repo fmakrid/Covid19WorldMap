@@ -1,3 +1,4 @@
+//Creates the map and initializes it
 $(document).ready(function($){
     $("#world-map-gdp").vectorMap({
         map: "world_mill_en",
