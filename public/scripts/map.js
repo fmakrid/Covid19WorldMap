@@ -2,12 +2,13 @@ $(document).ready(function($){
     $("#world-map-gdp").vectorMap({
         map: "world_mill_en",
         zoomButtons : false,
+        zoomOnScroll: false,
         series: {
           regions: [
             {
-              values: {},
+              values:  gdpData,
               scale: ["#FFFFFF","#C23030", "#3D0000","#000000"],
-              normalizeFunction: "polynomial",
+              normalizeFunction: "lineal",
               attribute: 'fill',
             },
           ],
