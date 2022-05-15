@@ -4,8 +4,6 @@ const path = require("path");
 const mysql = require("mysql2");
 const express = require("express");
 
-const db = require("./data/database.js");
-
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
