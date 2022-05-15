@@ -9,7 +9,7 @@ $(document).ready(function($){
             {
               values:  gdpData,
               scale: ["#FFFFFF","#C23030", "#3D0000","#000000"],
-              normalizeFunction: "lineal",
+              normalizeFunction: "polynomial",
               attribute: 'fill',
             },
           ],
