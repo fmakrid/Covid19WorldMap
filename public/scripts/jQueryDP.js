@@ -13,7 +13,6 @@ $("document").ready(function ($) {
 });
 
 
-
 //Prints date when a date is selected or changed
 $(function () {
   $("#date").on("change", function(){
