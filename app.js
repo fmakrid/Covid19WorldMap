@@ -7,8 +7,7 @@ const express = require("express");
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
-const hostname = "127.0.0.1";
-const port = 3000;
+const hostname = "localhost";
 
 //Database connection
 const connection = mysql.createConnection({
@@ -46,7 +45,7 @@ app.get("/", function (req, res) {
 });
 
 function listenResponse() {
-  console.log("Server running at http://" + hostname + ":" + port + "/");
+  console.log("Server running at " + hostname + ":" + port + "/");
 }
 
 app.post("/ajaxcall", function (req, res) {
@@ -66,5 +65,7 @@ app.use(function (error, req, res, next) {
   res.status(500).render("500");
 });
 
-//This listens to a specific port and runs a fuction
-app.listen(3000, hostname, listenResponse);
+//This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
+const port = process.env.PORT || 3000;
+app.listen(port, listenResponse);
+
