@@ -12,10 +12,10 @@ const port = 3000;
 
 //Database connection
 const connection = mysql.createConnection({
-  host: "79.131.16.178",
+  host: "covid19.cfxoiisxjdjz.eu-central-1.rds.amazonaws.com",
   database: "covid19",
   user: "mainuser",
-  password: "mainuser",
+  password: "covid19userpass",
 });
 
 
