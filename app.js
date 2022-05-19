@@ -8,6 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 
 const hostname = "localhost";
+const port = 8080;
 
 //Database connection
 const connection = mysql.createConnection({
@@ -22,7 +23,7 @@ const connection = mysql.createConnection({
 function sqlQuery(data, callback) {
   var sql = "SELECT iso2, cases FROM covid19 WHERE dates='" + data + "';"
   connection.query(sql, function (err, results, fields) {
-      if (err) {
+    if (err) {
         throw err;
       }
 
@@ -66,8 +67,5 @@ app.use(function (error, req, res, next) {
 });
 
 //This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 app.listen(port, listenResponse);
-
-//Empty test commit
-//Another test commit
