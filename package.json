@@ -31,8 +31,5 @@
   "bugs": {
     "url": "https://github.com/noobas32/Covid19WorldMap/issues"
   },
-  "homepage": "https://github.com/noobas32/Covid19WorldMap#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "homepage": "https://github.com/noobas32/Covid19WorldMap#readme"
 }
