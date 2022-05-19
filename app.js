@@ -66,8 +66,6 @@ app.use(function (error, req, res, next) {
 });
 
 //This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
+const port = 5000;
 app.listen(port, listenResponse);
-
-//Empty test commit
-//Another test commit
