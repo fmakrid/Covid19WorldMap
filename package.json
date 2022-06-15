@@ -1,23 +1,15 @@
 {
   "name": "covid19worldmap",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "A map containing information about Covid19 cases worldwide",
   "main": "server.js",
+  "engines": {
+    "node": "^16.0.0"
+  },
   "dependencies": {
-    "bignumber.js": "^9.0.0",
-    "core-util-is": "^1.0.3",
     "express": "^4.17.3",
-    "inherits": "^2.0.4",
-    "isarray": "^1.0.0",
     "jquery": "^3.6.0",
-    "jsdom": "^19.0.0",
-    "mysql2": "^2.3.3",
-    "process-nextick-args": "^2.0.1",
-    "readable-stream": "^2.3.7",
-    "safe-buffer": "^5.1.2",
-    "sqlstring": "^2.3.1",
-    "string_decoder": "^1.1.1",
-    "util-deprecate": "^1.0.2"
+    "mysql": "^2.18.1"
   },
   "scripts": {
     "start": "node app.js"
@@ -31,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/***REMOVED***/Covid19WorldMap/issues"
   },
-  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme"
+  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme",
+  "devDependencies": {}
 }
