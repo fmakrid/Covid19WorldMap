@@ -11,7 +11,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 
 const hostname = "localhost";
-const port = 8080;
+const port = 5000;
 
 //Database connection
 const connection = mysql.createConnection({
