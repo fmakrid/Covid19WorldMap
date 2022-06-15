@@ -1,10 +1,13 @@
+//Declaring global object variable
 var gdpData = {};
-const fs = require("fs");
+//importing npm packages
 const path = require("path");
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const express = require("express");
 
+//declaring npm express package as app
 const app = express();
+//this code is used to access the body properties of DOM to extract GET/POST requests
 app.use(express.urlencoded({ extended: false }));
 
 const hostname = "localhost";
@@ -39,16 +42,15 @@ function sqlQuery(data, callback) {
 }
 
 app.use(express.static("public"));
-
+//This sends the index file when the homepage is requested via GET request (by visiting the website)
 app.get("/", function (req, res) {
   const htmlFilePath = path.join(__dirname, "views", "index.html");
   res.sendFile(htmlFilePath);
 });
 
-function listenResponse() {
-  console.log("Server running at " + hostname + ":" + port + "/");
-}
-
+//This code runs when a POST request is received on /ajaxcall url
+//In this case we receive a post request containing the date picked on calendar, 
+//run a query using the date and send the results to the client to color the map accordingly
 app.post("/ajaxcall", function (req, res) {
   var stuffIWant = {Test:"Not working"}
   var date = req.body.Date;
@@ -66,6 +68,10 @@ app.use(function (error, req, res, next) {
   res.status(500).render("500");
 });
 
+function listenResponse() {
+  console.log("Server running at " + hostname + ":" + port + "/");
+}
 //This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
 // const port = process.env.PORT || 3000;
 app.listen(port, listenResponse);
+//test1
