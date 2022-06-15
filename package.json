@@ -1,6 +1,6 @@
 {
   "name": "covid19worldmap",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "A map containing information about Covid19 cases worldwide",
   "main": "server.js",
   "engines": {
@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/***REMOVED***/Covid19WorldMap/issues"
   },
-  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme"
+  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme",
+  "devDependencies": {}
 }
