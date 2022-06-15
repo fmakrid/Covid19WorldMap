@@ -11,7 +11,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 
 const hostname = "localhost";
-const port = 5000;
+const port = 8080;
 
 //Database connection
 const connection = mysql.createConnection({
@@ -74,4 +74,3 @@ function listenResponse() {
 //This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
 // const port = process.env.PORT || 3000;
 app.listen(port, listenResponse);
-//test1
