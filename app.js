@@ -2,7 +2,7 @@
 var gdpData = {};
 //importing npm packages
 const path = require("path");
-const mysql = require("./node_modules/mysql/index.js");
+const mysql = require("mysql");
 const express = require("express");
 
 //declaring npm express package as app
