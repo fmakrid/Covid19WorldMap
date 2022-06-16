@@ -73,4 +73,4 @@ function listenResponse() {
 }
 //This listens to a specific port if the environment gives one, else it defaults to 3000 and runs a fuction when it is accessed
 // const port = process.env.PORT || 3000;
-app.listen(80, listenResponse);
+app.listen(8080, listenResponse);
