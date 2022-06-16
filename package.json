@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A map containing information about Covid19 cases worldwide",
   "main": "server.js",
-  "engines": {
-    "node": "^16.0.0"
-  },
   "dependencies": {
     "express": "^4.17.3",
     "jquery": "^3.6.0",
