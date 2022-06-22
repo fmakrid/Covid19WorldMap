@@ -21,5 +21,8 @@
     "url": "https://github.com/***REMOVED***/Covid19WorldMap/issues"
   },
   "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-google": "^0.14.0"
+  }
 }
