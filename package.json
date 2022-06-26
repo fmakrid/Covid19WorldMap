@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/***REMOVED***/Covid19WorldMap.git"
+    "url": "git+https://github.com/fmakrid/Covid19WorldMap.git"
   },
   "author": "Filippos Makridis (BaCpE Thesis)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/***REMOVED***/Covid19WorldMap/issues"
+    "url": "https://github.com/fmakrid/Covid19WorldMap/issues"
   },
-  "homepage": "https://github.com/***REMOVED***/Covid19WorldMap#readme",
+  "homepage": "https://github.com/fmakrid/Covid19WorldMap#readme",
   "devDependencies": {
     "eslint": "^8.18.0",
     "eslint-config-google": "^0.14.0"
