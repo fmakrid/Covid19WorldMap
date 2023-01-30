@@ -16,14 +16,6 @@ app.use(express.urlencoded({extended: false}));
 const hostname = "localhost";
 const port = 8080;
 
-// Database connection
-const connection = mysql.createConnection({
-  host: "***REMOVED***",
-  database: "covid19",
-  user: "***REMOVED***",
-  password: "***REMOVED***",
-});
-
 // This runs an sql query, cleans the results
 // and outputs them in the specified file as needed
 function sqlQuery(data, callback) {
