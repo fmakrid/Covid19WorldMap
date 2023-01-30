@@ -58,13 +58,13 @@ app.post("/ajaxcall", function(req, res) {
   });
 });
 
-function listenResponse() {
-  console.log("Server running at " + hostname + ":" + port + "/");
-}
-// This listens to a specific port if the environment gives one
-// else it defaults to 3000 and runs a fuction when it is accessed
-// const port = process.env.PORT || 3000;
-app.listen(8080, listenResponse);
+// function listenResponse() {
+//   console.log("Server running at " + hostname + ":" + port + "/");
+// }
+// // This listens to a specific port if the environment gives one
+// // else it defaults to 3000 and runs a fuction when it is accessed
+// // const port = process.env.PORT || 3000;
+// app.listen(8080, listenResponse);
 
 function listenResponse() {
   console.log("Server running at " + hostname + ":" + port + "/");
