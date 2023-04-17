@@ -18,7 +18,7 @@ $(function () {
 		var pickedDate = selectedDate;
 		$.ajax({
 			type: "GET",
-			url: `http://207.154.212.148:8080/api/data/?date="${pickedDate}"`,
+			url: `https://api.covid19.philippos-makridis.dev:8080/api/data/?date="${pickedDate}"`,
 		})
 			.done(function (data) {
 				var mapObj = $("#world-map-gdp").vectorMap("get", "mapObject");
